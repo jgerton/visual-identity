@@ -106,6 +106,22 @@ Offer to adjust priority or skip sections. Wait for confirmation before proceedi
      weaknesses: [list of competitive weaknesses]
    ```
 7. **Save checkpoint:** Update the `competitors` array in brand-brief.md. Do not touch other sections.
+8. **Log research actions.** For each web search and web fetch performed during this step, append to the current run's `actions` array in `research-log.yaml`:
+   - For each web search:
+     ```yaml
+     - step: competitor-research
+       type: web_search
+       query: "[the search query used]"
+       results_count: [number of results returned]
+     ```
+   - For each web page fetched:
+     ```yaml
+     - step: competitor-research
+       type: web_fetch
+       url: "[the URL fetched]"
+       layer: "[brand_guidelines | css_extraction | qualitative]"
+     ```
+   - Write the updated `research-log.yaml`.
 
 ## Step 3: Chromatic Territory Mapping
 
@@ -155,6 +171,23 @@ chromatic_territory:
 **Client color preferences:** If the client specified preferred colors in their materials (check `client_input.additional_context` and original documents), acknowledge the preference in the output. Evaluate whether it lands in a saturated or available zone. Note whether it is strategically sound or risky.
 
 **Save checkpoint:** Update `competitors[].visual_identity`, `competitors[].color_source`, and `chromatic_territory` in brand-brief.md.
+
+**Log research actions.** For each web search and web fetch performed during this step, append to the current run's `actions` array in `research-log.yaml`:
+- For each web search (brand guidelines lookups, competitor color searches):
+  ```yaml
+  - step: chromatic-territory
+    type: web_search
+    query: "[the search query used]"
+    results_count: [number of results returned]
+  ```
+- For each web page fetched (CSS extraction, brand guideline pages):
+  ```yaml
+  - step: chromatic-territory
+    type: web_fetch
+    url: "[the URL fetched]"
+    layer: "[brand_guidelines | css_extraction | qualitative]"
+  ```
+- Write the updated `research-log.yaml`.
 
 ## Step 4: Positioning Analysis (Dunford 5 Components)
 
