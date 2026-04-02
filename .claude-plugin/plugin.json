@@ -1,0 +1,11 @@
+{
+  "name": "visual-identity",
+  "description": "Visual identity diagnosis and direction for brand designers. Linear pipeline from client intake through design briefs, powered by Dunford, Neumeier, Aaker, Jung, and Miller frameworks with anti-slop validation.",
+  "version": "0.1.0",
+  "author": {
+    "name": "jgerton"
+  },
+  "repository": "https://github.com/jgerton/visual-identity",
+  "license": "MIT",
+  "keywords": ["visual-identity", "brand", "diagnosis", "positioning", "design"]
+}
