@@ -127,25 +127,23 @@ Synthesize 5-10 brand DNA keywords from the full diagnosis. Prefer fewer keyword
 
 **Save checkpoint:** Hold in working memory until Step 10.
 
-## Step 5: Slide 3 -- SMP (~290 chars)
+## Step 5: Slide 3 -- Central Concept (~250 chars)
 
-**This is the one generative step.** The SMP does not exist in the diagnosis output. You must create it.
+**This is the one generative step.** The central concept does not exist in the diagnosis output. You must create it.
 
-**Source:** `audience_problem.philosophical`, `positioning.onlyness_statement`, `visual_exploration.recommended` rationale, `chromatic_territory.available_territory`
+**Source:** `audience_problem.philosophical`, `positioning.onlyness_statement`, `visual_exploration.recommended` rationale, `chromatic_territory.available_territory`, and the brand DNA keywords from Step 4
 
-**Generate two elements:**
+**Generate one descriptive block** (~250 chars) that captures the central concept driving the visual identity project. This is not a tagline, not a poetic phrase, and not a slogan. It describes the core idea that will guide all visual decisions: what visual territory the brand occupies, why, and what connects it to the brand DNA.
 
-**Main statement** (~110 chars): A single strategic phrase in large type. This phrase anchors all creative decisions that follow. When the client sees the mood board, they should ask: "Does this carry that idea?"
+The concept should read as a strategic description that a designer can use as a compass. When the client sees the mood board, they should be able to trace every visual choice back to this concept.
 
-**Supporting line** (~180 chars): 2-3 lines in smaller body text describing the intended effect or expanding the main statement.
+**Quality criterion (mandatory):** The concept must contain at least one element that would not exist without the diagnosis. A designer reading only the original client brief (without the diagnosis) should NOT be able to write this concept. It must incorporate a specific positioning insight, market gap, unoccupied territory, or differentiator surfaced by research.
 
-**Quality criterion (mandatory):** The SMP must contain at least one element that would not exist without the diagnosis. A designer reading only the original client brief (without the diagnosis) should NOT be able to write this SMP. It must incorporate a specific positioning insight, market gap, unoccupied territory, or differentiator surfaced by research.
+Test this by asking: could someone who only read the client intake produce this text? If yes, revise until diagnosis-derived specificity is present.
 
-Test this by asking: could someone who only read the client intake produce this phrase? If yes, revise until diagnosis-derived specificity is present.
+**Excludes:** Poetic taglines or slogans. More than one concept block. Explanation of how it was built. The terms "SMP" or "conceito central" on the slide itself.
 
-**Excludes:** More than one highlighted statement. Explanation of how it was built. The term "SMP" on the slide.
-
-**Character limits:** Main statement under 110 characters. Supporting line under 180 characters. Count and report both.
+**Character limit:** 250 characters total. Count characters and report the count.
 
 **Save checkpoint:** Hold in working memory until Step 10.
 
