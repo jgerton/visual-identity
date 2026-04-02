@@ -78,7 +78,7 @@ The visual-direction skill will:
 
 ## Character limits
 
-Every presentation slide has a character limit. These exist because of Elio's 4-second read rule: if a client cannot absorb a slide's content in 4 seconds of reading, the slide has too much text.
+Every presentation slide has a character limit. These exist because of the 4-second read rule: if a client cannot absorb a slide's content in 4 seconds of reading, the slide has too much text. The designer complements with 20-30 seconds of spoken narrative.
 
 | Slide | Limit |
 |-------|-------|
@@ -104,6 +104,17 @@ Every output passes through 6 validation tests before delivery:
 6. **Business-Type Test:** If the output works for a completely different type of organization, it is too generic.
 
 This matters because generic brand strategy is worse than no brand strategy. It gives false confidence. The anti-slop system forces specificity at every step.
+
+## What you need to test this
+
+To try the plugin on a real project, you need:
+
+- **Client materials:** Any combination of briefing documents, strategic plans, presentations, or institutional texts. PDFs, PPTX, and plain text all work. The more substance in the materials, the richer the diagnosis.
+- **A brand-brief.md:** The YAML-based file that holds all the structured data. You create the initial version (see the template above in "Your first run"), and the skills fill it in from there.
+
+The diagnosis skill does real web research on competitors, so it works best when the client has named at least 1-2 competitors or the industry is specific enough to search.
+
+For a minimal test: create a brand-brief.md with just the `client_input` fields filled in from any brand you know well. The diagnosis skill will research and fill the rest.
 
 ## Next steps
 
