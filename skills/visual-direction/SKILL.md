@@ -69,16 +69,16 @@ Offer to adjust priority or skip sections. Wait for confirmation before proceedi
 
 ## Step 2: Slide 0 -- Project Context (~500 chars)
 
-**Source:** `client_input.project_synthesis.summary`, `client_input.project_synthesis.core_challenge`, `client_input.additional_context`
+**Source:** `client_input.project_synthesis.summary`, `client_input.project_synthesis.core_challenge`, `client_input.project_synthesis.success_criteria`
 
 Write 3 short blocks (1-2 lines each):
-1. What is happening in the sector/moment that makes this project relevant now
-2. The problem the new identity needs to solve (from outside in: not the brand itself but how it is perceived)
-3. What is at stake: what changes if the project works
+1. What the organization is and what it does (category, scope, key facts)
+2. The project challenge: why the visual identity needs to change (the gap between substance and perception)
+3. The objective: what success looks like for this project (drawn from success_criteria)
 
-**Objective:** Show research and understanding of the landscape before expressing any opinion. Establish authority in the first 60 seconds.
+**Objective:** Contextualize the project clearly and objectively. The client should understand what is being done, why, and what the target outcome is. Establish shared understanding before expressing any opinion.
 
-**Excludes:** Description of what brand does (that is Foundation). Personality attributes. Any solution element. This slide looks outward, not inward.
+**Excludes:** External events or trends unless directly referenced in the client's own materials. Personality attributes. Any solution element. Brand Foundation content (that is Slide 1).
 
 **Character limit:** 500 characters total. Count characters and report the count.
 
