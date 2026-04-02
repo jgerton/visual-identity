@@ -168,10 +168,12 @@ Write a compressed summary that includes:
 
 **Source:** `client_input.project_synthesis.success_criteria`, `client_input.project_synthesis.core_challenge`, `client_input.identified_challenges`, `audience_problem.villain`
 
-Generate 2-3 project-specific guidelines. Each guideline has:
+Generate 2-3 project-specific guidelines. Start from `success_criteria` as the foundation, then enrich with `identified_challenges` to add specificity and stakes. The success criteria define what we want to achieve; the identified challenges define what we need to overcome. Each guideline merges both into a single project objective.
+
+Each guideline has:
 - A strong name (short, memorable, used as a slide highlight)
 - A contextual description in accessible language (2-3 lines)
-- Each names a specific challenge in THIS project, not a generic design principle
+- Each names a specific project objective rooted in both what needs to be achieved and what needs to be overcome
 
 **Objective:** Create a collaborative validation filter before the mood board. The client confirms the right objectives and takes responsibility for the criteria they will use to judge the identity. This reduces revision cycles driven by undeclared reasons.
 
