@@ -105,21 +105,25 @@ Write 3 paragraphs (up to 2 lines each):
 
 **Source:** `positioning` (all components), `personality.attributes`, `personality.archetypes`, `visual_exploration.recommended`, `audience_problem`
 
-Synthesize 5-10 brand DNA keywords from the full diagnosis. Prefer fewer keywords with more depth. Each keyword is a visual concept-word that carries a layer -- it may relate to form, materiality, personality, or origin. Read together, they form a portrait of the brand without needing explanation.
+Extract 5-10 brand DNA keywords from the diagnosis. These are simple, recognizable brand attribute words that a designer and client would both understand immediately. Pick the most distinctive attributes that emerged from the diagnosis; read together, they should paint a clear picture of the brand's character.
 
 **Output format:**
-- Keywords presented as a slash-separated list (e.g., "Subterrâneo / Rizomático / Soberano / Territorial / Orgânico")
-- Below the keywords, a brief contextual line (1-2 sentences) explaining what concept the keywords collectively point toward
+- Keywords presented as a slash-separated list (e.g., PT-BR: "Confiavel / Colaborativo / Estrategico / Territorial / Tecnico / Acessivel"; EN: "Trustworthy / Collaborative / Strategic / Territorial / Technical / Approachable")
+- Below the keywords, a brief contextual line (1-2 sentences) explaining what the keywords collectively point toward
 
 **What brand DNA is NOT:**
 - Not institutional values ("integrity," "excellence")
 - Not voice attributes ("friendly," "authoritative")
 - Not Aaker personality dimensions used directly (though they inform the synthesis)
 - Not generic adjectives ("innovative," "professional," "modern")
+- Not abstract or poetic concept-words ("rizomatico," "soberano")
+- Not obscure vocabulary the client would need to look up
 
-**Keyword quality:** Each keyword must pass the Swap Test. Replace the brand name with a competitor's. If the keyword still fits, it is too generic. Replace with something specific to this brand's positioning and visual territory.
+**Keyword quality:** Each keyword must pass the Swap Test. Replace the brand name with a competitor's. If the keyword still fits, it is too generic. Replace with something more specific to this brand's positioning.
 
-**Objective:** The client reads the keywords and recognizes their brand. The designer reads them and already knows where to go. Identity validation through concept-words, not personality exercises.
+**Readability test:** Read each keyword aloud. If a Brazilian brand designer would hesitate or need to think about what it means, replace it with a simpler word. For PT-BR projects, use native Portuguese words, not translated English marketing terms.
+
+**Objective:** The client reads the keywords and recognizes their brand. The designer reads them and already knows where to go. Light-touch guide words, not a deep personality framework.
 
 **Excludes:** Voice contrast pairs ("X but NOT Y"). Full personality descriptions. More than 10 keywords. Any visual translation at this stage.
 
@@ -225,7 +229,7 @@ This step always runs. Re-read all 6 slides of presentation text and validate:
 
 **4. Central Concept Quality Criterion:** Does the central concept contain at least one element that would not exist without the diagnosis? If a designer could have written it from just the client brief, revise.
 
-**4a. Brand DNA Swap Test:** Take each brand DNA keyword individually. Replace the brand name with a competitor's. If the keyword still fits the competitor, it is too generic. Replace with a more specific concept-word.
+**4a. Brand DNA Swap Test:** Take each brand DNA keyword individually. Replace the brand name with a competitor's. If the keyword still fits the competitor, it is too generic. Replace with a more specific attribute word.
 
 **5. Character Limit Test:** Verify each slide is within its character limit:
 - Slide 0 (Project Context): 500 chars
