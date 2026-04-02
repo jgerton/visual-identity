@@ -343,6 +343,15 @@ Re-read brand-brief.md with all sections now populated. Run every test from `ref
 
 After all tests pass, proceed to Step 9.
 
+**Log validation results.** After running all 6 tests, append one entry per test to the current run's `actions` array in `research-log.yaml`:
+```yaml
+- step: anti-slop
+  type: validation
+  test: "[test_name]"
+  result: "[pass | fail_then_fix]"
+```
+Use these test names: `swap_test`, `hand_test`, `specificity_test`, `differentiation_test`, `voice_contrast_test`, `business_type_test`. If a test failed and was fixed, use `fail_then_fix`. Write the updated `research-log.yaml`.
+
 ## Step 9: Update Stage and Decision Log
 
 1. Set `stage: diagnosis` in the YAML frontmatter
