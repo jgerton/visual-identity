@@ -35,6 +35,35 @@ Your output is the designer's working document. It must be clear, sharp, and use
    - `adequate`: standard research depth
    - `thin`: conduct deeper web research, probe more broadly, default to lower confidence levels
 7. Read `business_type` for framework adaptations throughout the diagnosis
+8. **Initialize research log.** Check if `research-log.yaml` exists in the working directory.
+   - If it does not exist, create it with `runs: []`.
+   - Read the existing `runs` array and determine the next `run_id` (highest existing `run_id` + 1, or 1 if empty).
+   - Append a new run block to the `runs` array:
+     ```yaml
+     - run_id: [next_id]
+       skill: diagnosis
+       started: [current ISO timestamp]
+       completed: null
+       steps_executed: []
+       actions: []
+       client_documents: []
+     ```
+   - Write the updated file back to `research-log.yaml`.
+9. **Log client documents.** For each client document read in item 1 (brand-brief.md) and any referenced client materials (PDFs, presentations, etc.):
+   - Append to the current run's `actions` array:
+     ```yaml
+     - step: load-context
+       type: document_read
+       target: "[filename]"
+       detail: "[page count] pages"
+     ```
+   - Append to the current run's `client_documents` array:
+     ```yaml
+     - name: "[filename]"
+       pages: [page count]
+     ```
+   - If page count is unknown, use `detail: "unknown"` and `pages: 0`.
+   - Write the updated `research-log.yaml`.
 
 ## Step 1: Announce Plan
 
