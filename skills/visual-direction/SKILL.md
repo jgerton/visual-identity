@@ -1,6 +1,6 @@
 ---
 name: visual-direction
-description: Produces client-facing presentation text from a diagnosed brand-brief. Extracts and compresses diagnosis into 6 slides within character limits, generates SMP, and provides mood board direction. Triggers when a designer has a diagnosed brand-brief.md and needs to prepare a client presentation.
+description: Produces client-facing presentation text from a diagnosed brand-brief. Extracts and compresses diagnosis into 6 slides within character limits, synthesizes brand DNA keywords and central concept, and provides mood board direction. Triggers when a designer has a diagnosed brand-brief.md and needs to prepare a client presentation.
 allowed-tools:
   - Read
   - Write
@@ -58,8 +58,8 @@ If any are missing: tell the designer what is needed and recommend running the d
 If all present: announce the extraction plan:
 1. Slide 0: Project Context (~500 chars)
 2. Slide 1: Brand Foundation (~540 chars)
-3. Slide 2: Brand Personality (~660 chars)
-4. Slide 3: SMP (~290 chars: 110 main + 180 supporting)
+3. Slide 2: Brand DNA (~660 chars)
+4. Slide 3: Central Concept (~250 chars)
 5. Slide 4: Chromatic Territory (~350 chars)
 6. Slide 5: Guidelines (~840 chars: 3x280 each)
 7. Mood Board Direction (designer reference, no char limit)
@@ -223,14 +223,15 @@ This step always runs. Re-read all 6 slides of presentation text and validate:
 
 **3. Specificity Test:** Scan all presentation text for banned words from the anti-slop reference (both PT-BR and EN lists). Replace each instance with a concrete, specific claim.
 
-**4. SMP Quality Criterion:** Does the SMP contain at least one element that would not exist without the diagnosis? If a designer could have written it from just the client brief, revise.
+**4. Central Concept Quality Criterion:** Does the central concept contain at least one element that would not exist without the diagnosis? If a designer could have written it from just the client brief, revise.
+
+**4a. Brand DNA Swap Test:** Take each brand DNA keyword individually. Replace the brand name with a competitor's. If the keyword still fits the competitor, it is too generic. Replace with a more specific concept-word.
 
 **5. Character Limit Test:** Verify each slide is within its character limit:
 - Slide 0 (Project Context): 500 chars
 - Slide 1 (Brand Foundation): 540 chars
-- Slide 2 (Brand Personality): 660 chars
-- Slide 3 SMP main: 110 chars
-- Slide 3 SMP supporting: 180 chars
+- Slide 2 (Brand DNA): 660 chars
+- Slide 3 (Central Concept): 250 chars
 - Slide 4 (Chromatic Territory): 350 chars
 - Slide 5 Guidelines: 280 chars each (3 max)
 If any slide exceeds its limit, compress without losing meaning. Report revised char count.
@@ -246,14 +247,14 @@ For each failure: name the test, show the failing text, show the revised text, u
   test: "[test_name]"
   result: "[pass | fail_then_fix]"
 ```
-Use these test names: `swap_test`, `hand_test`, `specificity_test`, `smp_quality`, `character_limit`, `business_type_test`. If a test failed and was fixed, use `fail_then_fix`. Write the updated `research-log.yaml`.
+Use these test names: `swap_test`, `hand_test`, `specificity_test`, `concept_quality`, `brand_dna_swap`, `character_limit`, `business_type_test`. If a test failed and was fixed, use `fail_then_fix`. Write the updated `research-log.yaml`.
 
 ## Step 9.5: Research Stats
 
 Compute per-project research stats and write the credibility summary. This is the same computation as the diagnosis skill's Step 9.5, updated with visual-direction's contributions.
 
 1. Write `completed` timestamp (current ISO) to the current run block in `research-log.yaml`.
-2. Write the `steps_executed` list to the current run block. For visual-direction, use: `prerequisite-check`, `project-context`, `brand-foundation`, `brand-personality`, `smp`, `chromatic-territory`, `guidelines`, `mood-board`, `anti-slop`. Include only steps that actually executed.
+2. Write the `steps_executed` list to the current run block. For visual-direction, use: `prerequisite-check`, `project-context`, `brand-foundation`, `brand-dna`, `central-concept`, `chromatic-territory`, `guidelines`, `mood-board`, `anti-slop`. Include only steps that actually executed.
 3. Read the full `research-log.yaml`.
 4. Compute `current_run` stats from the latest run block:
    - `client_documents`: count of entries in this run's `client_documents` array
@@ -324,14 +325,13 @@ presentation:
     brand_foundation:
       text: "..."
       char_count: N
-    brand_personality:
+    brand_dna:
+      keywords: "..."
+      context: "..."
+      char_count: N
+    central_concept:
       text: "..."
       char_count: N
-    smp:
-      main: "..."
-      supporting: "..."
-      char_count_main: N
-      char_count_supporting: N
     chromatic_territory:
       text: "..."
       char_count: N
@@ -362,7 +362,8 @@ presentation:
 ### [Date] -- Visual Direction Complete
 
 **Presentation slides generated:** 6 slides within character limits
-**SMP:** [the main statement]
+**Brand DNA:** [the keyword list]
+**Central concept:** [the concept text]
 **Guidelines:** [list the guideline names]
 **Mood board territory:** [recommended territory name]
 **Anti-slop validation:** [pass/fail summary]
@@ -375,7 +376,8 @@ presentation:
 
 5. Present the 6 slides to the designer for review. Format each slide clearly with its character count. Ask:
 - Does the tone feel right for your client?
-- Does the SMP capture the core idea?
+- Do the brand DNA keywords capture the brand's essence?
+- Does the central concept describe the right visual direction?
 - Are the guidelines the right validation criteria for the mood board?
 - Anything to adjust before building the mood board?
 
