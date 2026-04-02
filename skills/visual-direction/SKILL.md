@@ -21,6 +21,27 @@ Your output has two audiences: the client (presentation slides) and the designer
 2. Load reference: `${CLAUDE_PLUGIN_ROOT}/references/anti-slop.md`
 3. Read the `language` field (default: `pt-br`). All presentation text uses this language, written natively with full diacritical marks. See the Language rule above.
 4. Verify `stage` is `diagnosis`. If not, warn but proceed if key sections are populated.
+5. **Initialize research log entry.** Open `research-log.yaml` in the working directory (it must exist from a prior diagnosis run; if it does not, warn the designer and create it with `runs: []`).
+   - Read the existing `runs` array and determine the next `run_id` (highest existing `run_id` + 1).
+   - Append a new run block:
+     ```yaml
+     - run_id: [next_id]
+       skill: visual-direction
+       started: [current ISO timestamp]
+       completed: null
+       steps_executed: []
+       actions: []
+       client_documents: []
+     ```
+   - Write the updated `research-log.yaml`.
+6. **Log document reads.** If any additional client documents are read during this step (beyond brand-brief.md), log each as:
+   ```yaml
+   - step: load-context
+     type: document_read
+     target: "[filename]"
+     detail: "[page count] pages"
+   ```
+   Append to the current run's `actions` and `client_documents` arrays. Write the updated `research-log.yaml`.
 
 ## Step 1: Prerequisite Check
 
@@ -207,6 +228,15 @@ If any slide exceeds its limit, compress without losing meaning. Report revised 
 **6. Business-Type Test:** Read the full set of slides. Could this presentation work for a generic organization in a different sector? If any slide could, revise with more project-specific content.
 
 For each failure: name the test, show the failing text, show the revised text, update the slide.
+
+**Log validation results.** After running all 6 tests, append one entry per test to the current run's `actions` array in `research-log.yaml`:
+```yaml
+- step: anti-slop
+  type: validation
+  test: "[test_name]"
+  result: "[pass | fail_then_fix]"
+```
+Use these test names: `swap_test`, `hand_test`, `specificity_test`, `smp_quality`, `character_limit`, `business_type_test`. If a test failed and was fixed, use `fail_then_fix`. Write the updated `research-log.yaml`.
 
 ## Step 10: Write Output and Present
 
