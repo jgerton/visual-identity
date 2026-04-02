@@ -101,19 +101,29 @@ Write 3 paragraphs (up to 2 lines each):
 
 **Save checkpoint:** Hold in working memory until Step 10.
 
-## Step 4: Slide 2 -- Brand Personality (~660 chars)
+## Step 4: Slide 2 -- Brand DNA (~660 chars)
 
-**Source:** `personality.voice_contrast` (the NOT/NAO statements), `personality.attributes`
+**Source:** `positioning` (all components), `personality.attributes`, `personality.archetypes`, `visual_exploration.recommended`, `audience_problem`
 
-Select 3-4 of the strongest tension pairs from `voice_contrast`. Convert from diagnostic format ("X but NOT Y") into presentation format suitable for a client slide. The tension should be clear and natural in the output language.
+Synthesize 5-10 brand DNA keywords from the full diagnosis. Prefer fewer keywords with more depth. Each keyword is a visual concept-word that carries a layer -- it may relate to form, materiality, personality, or origin. Read together, they form a portrait of the brand without needing explanation.
 
-Add half a line of context where a pair is not self-explanatory to a client who has not read the diagnosis.
+**Output format:**
+- Keywords presented as a slash-separated list (e.g., "Subterrâneo / Rizomático / Soberano / Territorial / Orgânico")
+- Below the keywords, a brief contextual line (1-2 sentences) explaining what concept the keywords collectively point toward
 
-**Objective:** Client confirms (ideally out loud) that the tension pairs describe how the brand should be perceived. Identity validation, not technical approval.
+**What brand DNA is NOT:**
+- Not institutional values ("integrity," "excellence")
+- Not voice attributes ("friendly," "authoritative")
+- Not Aaker personality dimensions used directly (though they inform the synthesis)
+- Not generic adjectives ("innovative," "professional," "modern")
 
-**Excludes:** Isolated attributes without tension ("solid," "innovative"). Generic adjectives. More than 4 pairs. Any visual translation at this stage.
+**Keyword quality:** Each keyword must pass the Swap Test. Replace the brand name with a competitor's. If the keyword still fits, it is too generic. Replace with something specific to this brand's positioning and visual territory.
 
-**Character limit:** 660 characters total. Count characters and report the count.
+**Objective:** The client reads the keywords and recognizes their brand. The designer reads them and already knows where to go. Identity validation through concept-words, not personality exercises.
+
+**Excludes:** Voice contrast pairs ("X but NOT Y"). Full personality descriptions. More than 10 keywords. Any visual translation at this stage.
+
+**Character limit:** 660 characters total (keywords + contextual line). Count characters and report the count.
 
 **Save checkpoint:** Hold in working memory until Step 10.
 
