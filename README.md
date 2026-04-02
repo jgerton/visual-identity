@@ -11,8 +11,10 @@ A Claude Code plugin for brand identity designers. Runs strategic diagnosis on c
 ## The Pipeline
 
 ```
-client materials -> intake -> diagnosis -> visual-direction -> client presentation
+client materials -> intake -> diagnosis -> dossier -> visual-direction -> client presentation
 ```
+
+The dossier step converts the structured brand-brief.md into a readable narrative document. Visual-direction then draws from both the dossier (for natural phrasing) and brand-brief.md (for structured data) to produce better presentation copy.
 
 Intake and design-briefs skills are coming soon.
 
@@ -93,6 +95,7 @@ Then add to your Claude Code settings:
 | Skill | Status |
 |-------|--------|
 | Diagnosis | Complete, tested |
+| Dossier | Complete |
 | Visual Direction | Complete, tested |
 | Intake | Planned |
 | Design Briefs | Planned |

@@ -20,7 +20,8 @@ Your output has two audiences: the client (presentation slides) and the designer
 1. Find and read `brand-brief.md` in the working directory
 2. Load reference: `${CLAUDE_PLUGIN_ROOT}/references/anti-slop.md`
 3. Read the `language` field (default: `pt-br`). All presentation text uses this language, written natively with full diacritical marks. See the Language rule above.
-4. Verify `stage` is `diagnosis`. If not, warn but proceed if key sections are populated.
+4. Verify `stage` is `diagnosis` or `dossier`. If not, warn but proceed if key sections are populated.
+4a. **Load dossier if available.** Check if `brand-dossier.md` exists in the working directory. If it does, read it. When writing presentation slides (Steps 2-7), use the dossier as the primary source for natural language and phrasing. Use brand-brief.md for structured data (YAML fields, character counts, exact values). If no dossier exists, proceed using brand-brief.md only.
 5. **Initialize research log entry.** Open `research-log.yaml` in the working directory (it must exist from a prior diagnosis run; if it does not, warn the designer and create it with `runs: []`).
    - Read the existing `runs` array and determine the next `run_id` (highest existing `run_id` + 1).
    - Append a new run block:
