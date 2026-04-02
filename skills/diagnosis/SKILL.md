@@ -380,6 +380,69 @@ Use these test names: `swap_test`, `hand_test`, `specificity_test`, `differentia
 - Run visual-direction skill to develop the recommended territory into a client presentation
 ```
 
+## Step 9.5: Research Stats
+
+Compute per-project research stats and write the credibility summary.
+
+1. Write `completed` timestamp (current ISO) to the current run block in `research-log.yaml`.
+2. Write the `steps_executed` list to the current run block. Include only the step names that actually executed during this run (based on which steps were not skipped in Step 0). Use these names: `competitor-research`, `chromatic-territory`, `positioning`, `personality`, `audience-problem`, `visual-territories`, `anti-slop`.
+3. Read the full `research-log.yaml`.
+4. Compute `current_run` stats from the latest run block:
+   - `client_documents`: count of entries in this run's `client_documents` array
+   - `pages_analyzed`: sum of `pages` in this run's `client_documents` array
+   - `web_searches`: count of actions with `type: web_search` in this run
+   - `sources_fetched`: count of actions with `type: web_fetch` in this run
+   - `competitors_researched`: count of entries in the `competitors` array in `brand-brief.md`
+   - `frameworks_applied`: 7 (constant: Dunford, Neumeier, Aaker, Jung, Miller, anti-slop, onlyness)
+   - `validation_tests_run`: count of actions with `type: validation` in this run
+   - `validation_failures_fixed`: count of actions with `type: validation` and `result: fail_then_fix` in this run
+5. Compute `cumulative` stats across all run blocks:
+   - `total_runs`: count of run blocks
+   - `total_client_documents`: deduplicated count of unique document names across all `client_documents` arrays (same document in multiple runs counts once)
+   - `total_pages_analyzed`: sum of `pages` for unique documents only
+   - `total_web_searches`: count of all actions with `type: web_search` across all runs
+   - `total_sources_fetched`: count of all actions with `type: web_fetch` across all runs
+   - `total_competitors_researched`: count of entries in the `competitors` array in `brand-brief.md` (distinct, not per-run)
+   - `total_frameworks_applied`: 7 (constant)
+   - `total_validation_tests_run`: count of all `type: validation` actions across all runs
+   - `total_validation_failures_fixed`: count of all `type: validation` + `result: fail_then_fix` across all runs
+6. Generate `credibility_summary` -- 3 lines in the project language (read `language` from `brand-brief.md`). Each line follows the pattern: big number + short descriptor + parenthetical detail.
+   - **Line 1:** client documents + pages. Example (pt-br): `"5 documentos do cliente analisados (51 páginas)"`
+   - **Line 2:** sources researched + run count. If `total_runs` > 1, include run count. Example (pt-br): `"25 fontes pesquisadas em 2 rodadas de análise"`. If only 1 run: `"18 fontes pesquisadas"`.
+   - **Line 3:** frameworks + validation tests. Example (pt-br): `"7 frameworks aplicados com 12 testes de validação"`
+   - Use cumulative numbers for the summary. Numbers must be real counts from the log. No rounding, no vague language.
+7. Write the `research_stats` block to `brand-brief.md` as a top-level YAML section:
+   ```yaml
+   research_stats:
+     last_updated: [current ISO timestamp]
+     current_run:
+       run_id: [N]
+       skill: diagnosis
+       client_documents: [N]
+       pages_analyzed: [N]
+       web_searches: [N]
+       sources_fetched: [N]
+       competitors_researched: [N]
+       frameworks_applied: 7
+       validation_tests_run: [N]
+       validation_failures_fixed: [N]
+     cumulative:
+       total_runs: [N]
+       total_client_documents: [N]
+       total_pages_analyzed: [N]
+       total_web_searches: [N]
+       total_sources_fetched: [N]
+       total_competitors_researched: [N]
+       total_frameworks_applied: 7
+       total_validation_tests_run: [N]
+       total_validation_failures_fixed: [N]
+     credibility_summary:
+       line_1: "[generated line 1]"
+       line_2: "[generated line 2]"
+       line_3: "[generated line 3]"
+   ```
+   If a `research_stats` block already exists in `brand-brief.md`, overwrite it entirely with the new computed values.
+
 ## Step 10: Present Summary
 
 Present a structured summary to the designer. Do NOT dump the full brand-brief.md. Instead:
@@ -392,3 +455,10 @@ Present a structured summary to the designer. Do NOT dump the full brand-brief.m
 - **Recommended visual territory** -- name + one-line rationale
 - **Confidence flags** -- what is solid, what needs validation from the client
 - **Next step** -- "Run visual-direction to develop the recommended territory into a client presentation"
+- **Research stats** -- present the 3-line credibility summary from `research_stats.credibility_summary`:
+  ```
+  [line_1]
+  [line_2]
+  [line_3]
+  ```
+  Tell the designer: "These numbers are ready for your credibility slide. They update automatically on each run."
