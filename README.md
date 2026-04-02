@@ -101,6 +101,11 @@ Then add to your Claude Code settings:
 
 Works alongside Brand Toolkit. Both plugins read and write the same `brand-brief.md` format. Diagnosis enriches positioning, personality, and competitors that Brand Toolkit skills can build on.
 
+## Contributors
+
+- **Jon Gerton** ([@jgerton](https://github.com/jgerton)) -- plugin development
+- **Elio Almeida** -- domain expertise, presentation structure, character limits, anti-slop criteria, and real-world testing from active visual identity projects
+
 ## Community
 
 Building more tools like this in the open. Come build with us:
