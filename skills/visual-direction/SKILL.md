@@ -1,6 +1,6 @@
 ---
 name: visual-direction
-description: Produces client-facing presentation text from a diagnosed brand-brief. Extracts and compresses diagnosis into 6 slides within character limits, synthesizes brand DNA keywords and central concept, and provides mood board direction. Triggers when a designer has a diagnosed brand-brief.md and needs to prepare a client presentation.
+description: Produces client-facing presentation text from a diagnosed brand-brief. Extracts and compresses diagnosis into 5 slides within character limits, synthesizes brand DNA keywords, and provides mood board direction with internal central concept. Triggers when a designer has a diagnosed brand-brief.md and needs to prepare a client presentation.
 allowed-tools:
   - Read
   - Write
@@ -60,11 +60,10 @@ If all present: announce the extraction plan:
 1. Slide 0: Project Context (~500 chars)
 2. Slide 1: Brand Foundation (~540 chars)
 3. Slide 2: Brand DNA (~660 chars)
-4. Slide 3: Central Concept (~250 chars)
-5. Slide 4: Chromatic Territory (~350 chars)
-6. Slide 5: Guidelines (~840 chars: 3x280 each)
-7. Mood Board Direction (designer reference, no char limit)
-8. Anti-slop validation (always runs)
+4. Slide 3: Chromatic Territory (~350 chars)
+5. Slide 4: Guidelines (~840 chars: 3x280 each)
+6. Mood Board Direction (designer reference, no char limit; includes internal central concept)
+7. Anti-slop validation (always runs)
 
 Offer to adjust priority or skip sections. Wait for confirmation before proceeding.
 
@@ -132,27 +131,25 @@ Extract 5-10 brand DNA keywords from the diagnosis. These are simple, recognizab
 
 **Save checkpoint:** Hold in working memory until Step 10.
 
-## Step 5: Slide 3 -- Central Concept (~250 chars)
+## Step 5: Internal Central Concept (designer-only, not a presentation slide)
 
-**This is the one generative step.** The central concept does not exist in the diagnosis output. You must create it.
+**This is the one generative step.** The central concept does not exist in the diagnosis output. You must create it. It is an internal tool for the designer, not shown to the client in the presentation.
 
 **Source:** `audience_problem.philosophical`, `positioning.onlyness_statement`, `visual_exploration.recommended` rationale, `chromatic_territory.available_territory`, and the brand DNA keywords from Step 4
 
 **Generate one descriptive block** (~250 chars) that captures the central concept driving the visual identity project. This is not a tagline, not a poetic phrase, and not a slogan. It describes the core idea that will guide all visual decisions: what visual territory the brand occupies, why, and what connects it to the brand DNA.
 
-The concept should read as a strategic description that a designer can use as a compass. When the client sees the mood board, they should be able to trace every visual choice back to this concept.
+The concept should read as a strategic description that a designer can use as a compass for mood board creation and creative decisions.
 
 **Quality criterion (mandatory):** The concept must contain at least one element that would not exist without the diagnosis. A designer reading only the original client brief (without the diagnosis) should NOT be able to write this concept. It must incorporate a specific positioning insight, market gap, unoccupied territory, or differentiator surfaced by research.
 
 Test this by asking: could someone who only read the client intake produce this text? If yes, revise until diagnosis-derived specificity is present.
 
-**Excludes:** Poetic taglines or slogans. More than one concept block. Explanation of how it was built. The terms "SMP" or "conceito central" on the slide itself.
+**Excludes:** Poetic taglines or slogans. More than one concept block. Explanation of how it was built.
 
-**Character limit:** 250 characters total. Count characters and report the count.
+**Hold for Step 8:** This concept is included in the Mood Board Direction section, not as a presentation slide.
 
-**Save checkpoint:** Hold in working memory until Step 10.
-
-## Step 6: Slide 4 -- Chromatic Territory (~350 chars)
+## Step 6: Slide 3 -- Chromatic Territory (~350 chars)
 
 **Source:** `chromatic_territory.competitor_map`, `chromatic_territory.saturated_zones`, `chromatic_territory.available_territory`, `chromatic_territory.recommended_direction`
 
@@ -169,7 +166,7 @@ Write a compressed summary that includes:
 
 **Save checkpoint:** Hold in working memory until Step 10.
 
-## Step 7: Slide 5 -- Guidelines (~840 chars total, 3 guidelines x 280 chars each)
+## Step 7: Slide 4 -- Guidelines (~840 chars total, 3 guidelines x 280 chars each)
 
 **Source:** `client_input.project_synthesis.success_criteria`, `client_input.project_synthesis.core_challenge`, `client_input.identified_challenges`, `audience_problem.villain`
 
@@ -192,7 +189,11 @@ Each guideline has:
 
 **Source:** `visual_exploration.recommended` (the selected territory: name, description, color_tendency, typography_tendency, imagery_tendency), `chromatic_territory.recommended_direction`
 
-This section is for the designer, not the client. Expand the recommended visual territory into actionable mood board guidance:
+This section is for the designer, not the client. Expand the recommended visual territory into actionable mood board guidance.
+
+**Central concept:**
+- Include the central concept generated in Step 5 as the opening element of this section
+- This anchors all mood board decisions: color, imagery, typography, and composition should trace back to this concept
 
 **Color palette:**
 - List specific hex values with usage roles (primary, secondary, accent, neutrals)
@@ -220,46 +221,43 @@ No character limit on this section. Be as specific as the diagnosis data allows.
 
 ## Step 9: Anti-Slop Validation
 
-This step always runs. Re-read all 6 slides of presentation text and validate:
+This step always runs. Load `${CLAUDE_PLUGIN_ROOT}/references/anti-slop.md` and run every test from it against all presentation slides and the internal central concept. The reference contains 15 tests organized in two categories: brand-specific validation (tests 1-7) and AI writing pattern detection (tests 8-15).
 
-**1. Swap Test:** Take each slide's text. Replace the brand name (or identifying details) with a competitor's name. If any slide still reads true for a competitor, revise that slide with more specificity.
+Run all 15 tests. For presentation copy, pay special attention to:
 
-**2. Hand Test:** Cover the brand name. Could a stranger identify which brand this presentation is for from the remaining content? If not, add project-specific details.
+- **Test 8 (Negative Parallelism):** The "not X, it's Y" pattern is the #1 complaint from the designer. Eliminate all instances.
+- **Test 9 (Copula Avoidance):** Use "é" instead of "funciona como", "atua como", "serve como".
+- **Test 10 (Rule of Three):** Break any forced triads.
+- **Test 11 (Filler):** No ceremony phrases.
+- **Test 15 (Two-Pass Self-Audit):** After all other tests pass, re-read the full output asking "what still sounds like AI?" and revise.
 
-**3. Specificity Test:** Scan all presentation text for banned words from the anti-slop reference (both PT-BR and EN lists). Replace each instance with a concrete, specific claim.
+Also run the brand-specific tests:
 
-**4. Central Concept Quality Criterion:** Does the central concept contain at least one element that would not exist without the diagnosis? If a designer could have written it from just the client brief, revise.
-
-**4a. Brand DNA Swap Test:** Take each brand DNA keyword individually. Replace the brand name with a competitor's. If the keyword still fits the competitor, it is too generic. Replace with a more specific attribute word.
-
-**5. Character Limit Test:** Verify each slide is within its character limit:
-- Slide 0 (Project Context): 500 chars
-- Slide 1 (Brand Foundation): 540 chars
-- Slide 2 (Brand DNA): 660 chars
-- Slide 3 (Central Concept): 250 chars
-- Slide 4 (Chromatic Territory): 350 chars
-- Slide 5 Guidelines: 280 chars each (3 max)
-If any slide exceeds its limit, compress without losing meaning. Report revised char count.
-
-**6. Business-Type Test:** Read the full set of slides. Could this presentation work for a generic organization in a different sector? If any slide could, revise with more project-specific content.
+- **Swap Test (1):** Replace brand name with competitor's. If slide still works, revise.
+- **Hand Test (2):** Cover brand name. Could a stranger identify the brand? If not, add specificity.
+- **Specificity Test (3):** Scan for banned words (both PT-BR and EN lists).
+- **Brand DNA Swap Test:** Each keyword individually. Replace brand with competitor. If it fits, too generic.
+- **Central Concept Quality:** Must contain diagnosis-derived insight.
+- **Character Limits:** Slide 0: 500, Slide 1: 540, Slide 2: 660, Slide 3: 350, Slide 4: 280 each.
+- **Business-Type Test (6):** Could this work for a generic org in another sector?
 
 For each failure: name the test, show the failing text, show the revised text, update the slide.
 
-**Log validation results.** After running all 6 tests, append one entry per test to the current run's `actions` array in `research-log.yaml`:
+**Log validation results.** After running all tests, append one entry per test to the current run's `actions` array in `research-log.yaml`:
 ```yaml
 - step: anti-slop
   type: validation
   test: "[test_name]"
   result: "[pass | fail_then_fix]"
 ```
-Use these test names: `swap_test`, `hand_test`, `specificity_test`, `concept_quality`, `brand_dna_swap`, `character_limit`, `business_type_test`. If a test failed and was fixed, use `fail_then_fix`. Write the updated `research-log.yaml`.
+Log each test that was run. If a test failed and was fixed, use `fail_then_fix`. Write the updated `research-log.yaml`.
 
 ## Step 9.5: Research Stats
 
 Compute per-project research stats and write the credibility summary. This is the same computation as the diagnosis skill's Step 9.5, updated with visual-direction's contributions.
 
 1. Write `completed` timestamp (current ISO) to the current run block in `research-log.yaml`.
-2. Write the `steps_executed` list to the current run block. For visual-direction, use: `prerequisite-check`, `project-context`, `brand-foundation`, `brand-dna`, `central-concept`, `chromatic-territory`, `guidelines`, `mood-board`, `anti-slop`. Include only steps that actually executed.
+2. Write the `steps_executed` list to the current run block. For visual-direction, use: `prerequisite-check`, `project-context`, `brand-foundation`, `brand-dna`, `chromatic-territory`, `guidelines`, `central-concept-internal`, `mood-board`, `anti-slop`. Include only steps that actually executed.
 3. Read the full `research-log.yaml`.
 4. Compute `current_run` stats from the latest run block:
    - `client_documents`: count of entries in this run's `client_documents` array
@@ -334,9 +332,6 @@ presentation:
       keywords: "..."
       context: "..."
       char_count: N
-    central_concept:
-      text: "..."
-      char_count: N
     chromatic_territory:
       text: "..."
       char_count: N
@@ -351,6 +346,7 @@ presentation:
         description: "..."
         char_count: N
   mood_board_direction:
+    central_concept: "..."
     territory_name: "..."
     color_palette: "..."
     imagery_references: "..."
@@ -366,11 +362,11 @@ presentation:
 ```
 ### [Date] -- Visual Direction Complete
 
-**Presentation slides generated:** 6 slides within character limits
+**Presentation slides generated:** 5 slides within character limits
 **Brand DNA:** [the keyword list]
-**Central concept:** [the concept text]
 **Guidelines:** [list the guideline names]
 **Mood board territory:** [recommended territory name]
+**Internal central concept:** [the concept text] (designer-only, not in presentation)
 **Anti-slop validation:** [pass/fail summary]
 
 **Recommended next action:**
@@ -379,10 +375,10 @@ presentation:
 - Run design-briefs skill after client presentation approval
 ```
 
-5. Present the 6 slides to the designer for review. Format each slide clearly with its character count. Ask:
+5. Present the 5 slides to the designer for review. Format each slide clearly with its character count. Also show the internal central concept separately (marked as designer-only). Ask:
 - Does the tone feel right for your client?
 - Do the brand DNA keywords capture the brand's essence?
-- Does the central concept describe the right visual direction?
+- Does the internal central concept give you a clear creative direction?
 - Are the guidelines the right validation criteria for the mood board?
 - Anything to adjust before building the mood board?
 
