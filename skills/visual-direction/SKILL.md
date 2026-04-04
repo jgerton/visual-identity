@@ -221,38 +221,36 @@ No character limit on this section. Be as specific as the diagnosis data allows.
 
 ## Step 9: Anti-Slop Validation
 
-This step always runs. Re-read all 5 presentation slides and the internal central concept, then validate:
+This step always runs. Load `${CLAUDE_PLUGIN_ROOT}/references/anti-slop.md` and run every test from it against all presentation slides and the internal central concept. The reference contains 15 tests organized in two categories: brand-specific validation (tests 1-7) and AI writing pattern detection (tests 8-15).
 
-**1. Swap Test:** Take each slide's text. Replace the brand name (or identifying details) with a competitor's name. If any slide still reads true for a competitor, revise that slide with more specificity.
+Run all 15 tests. For presentation copy, pay special attention to:
 
-**2. Hand Test:** Cover the brand name. Could a stranger identify which brand this presentation is for from the remaining content? If not, add project-specific details.
+- **Test 8 (Negative Parallelism):** The "not X, it's Y" pattern is the #1 complaint from the designer. Eliminate all instances.
+- **Test 9 (Copula Avoidance):** Use "é" instead of "funciona como", "atua como", "serve como".
+- **Test 10 (Rule of Three):** Break any forced triads.
+- **Test 11 (Filler):** No ceremony phrases.
+- **Test 15 (Two-Pass Self-Audit):** After all other tests pass, re-read the full output asking "what still sounds like AI?" and revise.
 
-**3. Specificity Test:** Scan all presentation text for banned words from the anti-slop reference (both PT-BR and EN lists). Replace each instance with a concrete, specific claim.
+Also run the brand-specific tests:
 
-**4. Brand DNA Swap Test:** Take each brand DNA keyword individually. Replace the brand name with a competitor's. If the keyword still fits the competitor, it is too generic. Replace with a more specific attribute word.
-
-**5. Central Concept Quality Criterion:** Does the internal central concept (from Step 5) contain at least one element that would not exist without the diagnosis? If a designer could have written it from just the client brief, revise. This validates the mood board direction anchor, not a presentation slide.
-
-**6. Character Limit Test:** Verify each slide is within its character limit:
-- Slide 0 (Project Context): 500 chars
-- Slide 1 (Brand Foundation): 540 chars
-- Slide 2 (Brand DNA): 660 chars
-- Slide 3 (Chromatic Territory): 350 chars
-- Slide 4 Guidelines: 280 chars each (3 max)
-If any slide exceeds its limit, compress without losing meaning. Report revised char count.
-
-**7. Business-Type Test:** Read the full set of slides. Could this presentation work for a generic organization in a different sector? If any slide could, revise with more project-specific content.
+- **Swap Test (1):** Replace brand name with competitor's. If slide still works, revise.
+- **Hand Test (2):** Cover brand name. Could a stranger identify the brand? If not, add specificity.
+- **Specificity Test (3):** Scan for banned words (both PT-BR and EN lists).
+- **Brand DNA Swap Test:** Each keyword individually. Replace brand with competitor. If it fits, too generic.
+- **Central Concept Quality:** Must contain diagnosis-derived insight.
+- **Character Limits:** Slide 0: 500, Slide 1: 540, Slide 2: 660, Slide 3: 350, Slide 4: 280 each.
+- **Business-Type Test (6):** Could this work for a generic org in another sector?
 
 For each failure: name the test, show the failing text, show the revised text, update the slide.
 
-**Log validation results.** After running all 7 tests, append one entry per test to the current run's `actions` array in `research-log.yaml`:
+**Log validation results.** After running all tests, append one entry per test to the current run's `actions` array in `research-log.yaml`:
 ```yaml
 - step: anti-slop
   type: validation
   test: "[test_name]"
   result: "[pass | fail_then_fix]"
 ```
-Use these test names: `swap_test`, `hand_test`, `specificity_test`, `brand_dna_swap`, `concept_quality`, `character_limit`, `business_type_test`. If a test failed and was fixed, use `fail_then_fix`. Write the updated `research-log.yaml`.
+Log each test that was run. If a test failed and was fixed, use `fail_then_fix`. Write the updated `research-log.yaml`.
 
 ## Step 9.5: Research Stats
 
